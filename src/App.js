@@ -6,12 +6,15 @@ import DishDetail from './components/DishdetailComponent';
 import './App.css';
 import { DISHES } from './share/dishes';
 import Main from './components/MainComponent';
+import {BrowserRouter} from 'react-router-dom';
 
 function App() {
   return (
-    <div >
-      <Main />
-    </div>
+    <BrowserRouter>
+      <div >
+        <Main />
+      </div>
+    </BrowserRouter>
   );
 }
 
