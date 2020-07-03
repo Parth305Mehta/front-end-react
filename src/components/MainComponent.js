@@ -7,6 +7,10 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import {Switch,Route,Redirect} from 'react-router-dom';
+import Contact from './ContactComponent';
+import { COMMENTS } from '../share/comments';
+import { PROMOTIONS } from '../share/promotions';
+import { LEADERS } from '../share/leaders';
 
 
 class Main extends Component {
@@ -15,6 +19,9 @@ class Main extends Component {
     super(props);
     this.state = {
         dishes: DISHES,
+        comments: COMMENTS,
+        promotions:PROMOTIONS,
+        leaders:LEADERS
         
     };
   }
@@ -24,7 +31,10 @@ class Main extends Component {
 
     const HomePage = () =>{
       return(
-        <Home />
+        <Home dish={this.state.dishes.filter((dish) =>dish.featured)[0]}
+        promotion={this.state.promotions.filter((promotion) =>promotion.featured)[0]}
+        leader={this.state.leaders.filter((leader) =>leader.featured)[0]}
+        />
       );
     }
     return (
@@ -33,6 +43,7 @@ class Main extends Component {
         <Switch>
         <Route path='/home' component={HomePage} />
         <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />  
+        <Route exact path='/contactus' component={Contact} />
         <Redirect to='/home' />
         </Switch>
         <Footer />
