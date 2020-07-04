@@ -11,7 +11,7 @@ import Contact from './ContactComponent';
 import { COMMENTS } from '../share/comments';
 import { PROMOTIONS } from '../share/promotions';
 import { LEADERS } from '../share/leaders';
-
+import About from './AboutComponent';
 
 class Main extends Component {
 
@@ -46,6 +46,11 @@ const DishWithId = ({match}) => {
   );
 }
 
+const Leader =() =>{
+  return(
+  <About leaders={this.state.leaders} />
+  );
+}
     return (
       <div>
         <Header />
@@ -53,6 +58,7 @@ const DishWithId = ({match}) => {
         <Route path='/home' component={HomePage} />
         <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />  
         <Route path='/menu/:dishId' component={DishWithId} />
+        <Route  path='/about' component={Leader}/>
         <Route exact path='/contactus' component={Contact} />
         <Redirect to='/home' />
         </Switch>
