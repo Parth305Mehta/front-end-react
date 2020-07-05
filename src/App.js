@@ -7,14 +7,20 @@ import './App.css';
 import { DISHES } from './share/dishes';
 import Main from './components/MainComponent';
 import {BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import {ConfigureStore} from './redux/configureStore';
 
+const store = ConfigureStore();
 function App() {
+  
   return (
-    <BrowserRouter>
-      <div >
-        <Main />
-      </div>
-    </BrowserRouter>
+    <Provider store={store} >
+      <BrowserRouter>
+        <div >
+          <Main />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
@@ -22,13 +28,3 @@ export default App;
 
 
 
-
-/*
-<Navbar dark color="primary">
-       <div className="container">
-        <NavbarBrand href='/'>Ristorante Con Fusion</NavbarBrand>
-       </div>
-      </Navbar>
-<Menu dishes = { DISHES } /> 
-
-*/
