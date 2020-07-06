@@ -1,7 +1,7 @@
-import { COMMENTS } from '../share/comments';
-import { PROMOTIONS } from '../share/promotions';
+/*import { COMMENTS } from '../share/comments'; 
+import { PROMOTIONS } from '../share/promotions'; 
 import { LEADERS } from '../share/leaders';
-import { DISHES } from '../share/dishes';
+import { DISHES } from '../share/dishes'; 
 
 export const initialState = {
     dishes: DISHES,
@@ -12,4 +12,4 @@ export const initialState = {
 
 export const Reducer = (state = initialState ,action) =>{
     return state;
-};
+}; */

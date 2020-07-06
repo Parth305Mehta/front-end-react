@@ -191,7 +191,7 @@ handleSubmit(values){
                                     }}/>
                                     <Errors className='text-danger' model='.firstname' show='touched' messages={{
                                         required:'Required ',
-                                        minLength: 'Must be greateeer than 2 characters',
+                                        minLength: 'Must be greater than 2 characters',
                                         maxLength:'Must be 15 characters or less'
                                     }}/>
                                 </Col>
@@ -204,7 +204,7 @@ handleSubmit(values){
                                     }}/>
                                     <Errors className='text-danger' model='.lastname' show='touched' messages={{
                                         required:'Required ',
-                                        minLength: 'Must be greateeer than 2 characters',
+                                        minLength: 'Must be greater than 2 characters',
                                         maxLength:'Must be 15 characters or less'
                                     }}/>
                                 </Col>
@@ -221,7 +221,7 @@ handleSubmit(values){
                                         />
                                         <Errors className='text-danger' model='.telnum' show='touched' messages={{
                                             required:'Required ',
-                                            minLength: 'Must be greateeer than 2 characters',
+                                            minLength: 'Must be greater than 2 characters',
                                             maxLength:'Must be 15 characters or less',
                                             isNumber:'Should contains only integers',
                                         }}/>
