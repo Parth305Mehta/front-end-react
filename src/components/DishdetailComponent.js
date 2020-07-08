@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle ,Breadcrumb,BreadcrumbItem,Input,Button,Modal,ModalHeader,ModalBody,Label,Form,Col,Row,FormFeedback,FormGroup} from 'reactstrap';
 import {Control,LocalForm,Errors} from 'react-redux-form';
-import {Link} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
 
 
 /*Class Component*/
@@ -146,15 +146,33 @@ function RenderDish(props){
       }
 
       const DishDetail = (props) => {
+
         
         console.log('DishDetail component Render invoked');
         const dish = props.dish;
-    if (props.dish == null) {
-      return <div></div>;
-    }
+        if (props.isLoading) {
+            return (
+                <div className='container'>
+                    <div className='row'>
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+
+        else if (props.errMess) {
+            return (
+                <div className='container'>
+                    <div className='row'>
+                        <h4>{props.errMess}</h4>
+                    </div>
+                </div>
+            );
+        }
     
+    else if(props.dish != null ){
     return (
-    <div class='container'>
+    <div className='container'>
       <div className='row'>
                 <Breadcrumb>
                     <BreadcrumbItem><Link to ='/menu'>Menu</Link></BreadcrumbItem>
@@ -165,7 +183,7 @@ function RenderDish(props){
                     <hr />
                 </div>
             </div>
-        <div class='row'>
+        <div className='row'>
             <div className=" col-12 col-md-5 m-1">  
                 <RenderDish dish={props.dish} />
             </div>
@@ -178,6 +196,13 @@ function RenderDish(props){
     </div>
     );
   }
+
+  else{
+      return(
+        <div></div>
+      );
+  }
+}
 
 
 const required = (val) => val && val.length;
@@ -246,7 +271,6 @@ const minLength = (len) => (val) => (val) && (val.length >= len);
                                         required:'Required ',
                                         minLength: 'Must be greater than 2 characters',
                                         maxLength:'Must be 15 characters or less'
-                                        
                                     }}
                                     />
                                 </Col>
