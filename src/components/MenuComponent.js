@@ -4,6 +4,7 @@ import DishDetail from './DishdetailComponent';
 import { functionExpression } from '@babel/types';
 import {Link} from 'react-router-dom';
 import { Loading} from './LoadingComponent';
+import {baseUrl} from '../share/baseUrl';
 /*Class Component*/
 /*class Menu extends Component {
     constructor(props) {
@@ -51,7 +52,7 @@ function RenderMenuItem(props) {
     return(
         <Card>
         <Link to= {`/menu/${props.dish.id}`}> 
-        <CardImg width="100%" src={props.dish.image} alt={props.dish.name} />
+        <CardImg width="100%" src={baseUrl + props.dish.image} alt={props.dish.name} />
         <CardImgOverlay>
             <CardTitle>{props.dish.name}</CardTitle>
         </CardImgOverlay>
