@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import {Breadcrumb,BreadcrumbItem,Button,FormGroup,Label,Input,Col,Row,FormFeedback} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import {Control,Errors,Form,actions,LocalForm} from 'react-redux-form';
+import { Loading } from './LoadingComponent';
+import {baseUrl} from '../share/baseUrl';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -98,6 +100,8 @@ handleSubmit(values){
     console.log("Current state is :" +JSON.stringify(values));
     alert("Current state is :" +JSON.stringify(values));
     this.props.resetFeedbackForm();
+    this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email,values.agree,values.contactType,values.message);
+
     
 }
 
@@ -274,7 +278,7 @@ handleSubmit(values){
                             </Row>
                             <Row className='form-group'>
                                 <Col md={{size: 10, offset: 2}}>
-                                    <Button type="submit" color="primary">
+                                    <Button type="submit" color="primary" value='submit'>
                                         Send Feedback
                                     </Button>
                                 </Col>
