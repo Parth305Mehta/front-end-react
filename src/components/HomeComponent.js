@@ -26,7 +26,7 @@ function RenderCard({item,isLoading,errMess}){
                     <CardImg src={baseUrl + item.image} alt={item.name} />
                     <CardBody>
                         <CardTitle><strong>{item.name}</strong></CardTitle>
-                        {item.designation ? <CardSubtitle><strong>{item.designation}</strong></CardSubtitle> : null}
+                        {item.designation } <CardSubtitle><strong>{item.designation}</strong></CardSubtitle> : null}
                         <CardText>{item.description}</CardText>
                     </CardBody>
                 </Card>
